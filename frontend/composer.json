@@ -1,0 +1,7 @@
+{
+    "require": {
+        "laravel/socialite": "^5.27",
+        "laravel/sanctum": "^4.3",
+        "firebase/php-jwt": "^7.0"
+    }
+}
