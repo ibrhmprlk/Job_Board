@@ -2,21 +2,6 @@
 
 Modern, ölçeklenebilir ve rol tabanlı bir iş ilanı platformu. Laravel (PHP) backend API, Next.js frontend, Docker altyapısı ve bulut depolama entegrasyonu ile geliştirilmiştir.
 
----
-
-## 📋 İçindekiler
-
-- [Proje Hakkında](#proje-hakkında)
-- [Özellikler](#özellikler)
-- [Teknoloji Yığını](#teknoloji-yığını)
-- [Mimari](#mimari)
-- [Kurulum](#kurulum)
-- [Kullanım](#kullanım)
-- [API Dokümantasyonu](#api-dokümantasyonu)
-- [Proje Yapısı](#proje-yapısı)
-
----
-
 ## 📌 Proje Hakkında
 
 Job Board, işverenler ve iş arayanları bir araya getiren tam özellikli bir kariyer platformudur. LinkedIn ve Kariyer.net gibi platformlardan ilham alınarak, modern bir teknoloji yığını üzerine inşa edilmiştir.
