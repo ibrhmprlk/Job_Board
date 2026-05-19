@@ -16,7 +16,7 @@ use App\Http\Controllers\Auth\GoogleAuthController;
 Route::get('/auth/google/redirect', [GoogleAuthController::class, 'redirect']);
 Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback']);
 
-Route::get('/ping', fn() => response()->json(['status' => 'ok']));
+
 
 Route::post('/forgot-password', [PasswordResetLinkController::class, 'store']);
 Route::post('/reset-password', [NewPasswordController::class, 'store']);
