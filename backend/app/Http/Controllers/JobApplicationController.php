@@ -99,8 +99,14 @@ return response()->json($application, 201);
          ]);
          $data['reviewed_at']=now();
             $application->update($data);
-           // Adaya bildirim gönder
-$application->user->notify(new ApplicationStatusChanged($application->load('jobListing')));
+$application->update($data);
+
+// Adaya bildirim gönder - hata olursa yutulsun
+try {
+    $application->user->notify(new ApplicationStatusChanged($application->load('jobListing')));
+} catch (\Exception $e) {
+    // Bildirim gönderilemedi, ama işlem başarılı
+}
 
 return response()->json($application);
     }
