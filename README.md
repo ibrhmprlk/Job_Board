@@ -1,386 +1,180 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Board — Full-Stack İş İlanı Platformu</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts Inter & Fira Code -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        pre, code { font-family: 'Fira Code', monospace; }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-800 antialiased line-clamp-none">
+<img width="1440" height="8654" alt="image" src="https://github.com/user-attachments/assets/fa76bcd2-5bcf-4d96-a8da-de69d9448127" /># 🚀 Job Board — Full-Stack İş İlanı Platformu
 
-    <div class="max-w-4xl mx-auto px-4 py-12 md:py-20">
-        
-        <!-- Header -->
-        <header class="mb-12 border-b border-slate-200 pb-8">
-            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
-                🚀 Job Board — Full-Stack İş İlanı Platformu
-            </h1>
-            <p class="mt-4 text-lg text-slate-600 leading-relaxed">
-                Modern, ölçeklenebilir ve rol tabanlı bir iş ilanı platformu. Laravel (PHP) backend API, Next.js frontend, Docker altyapısı ve bulut depolama entegrasyonu ile geliştirilmiştir.
-            </p>
-        </header>
+Modern, ölçeklenebilir ve rol tabanlı bir iş ilanı platformu. Laravel (PHP) backend API, Next.js frontend, Docker altyapısı ve bulut depolama entegrasyonu ile geliştirilmiştir.
 
-        <!-- Proje Hakkında -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">📌 Proje Hakkında</h2>
-            <p class="text-slate-600 leading-relaxed mb-6">
-                Job Board, işverenler ve iş arayanları bir araya getiren tam özellikli bir kariyer platformudur. LinkedIn ve Kariyer.net gibi platformlardan ilham alınarak modern bir teknoloji yığını üzerine inşa edilmiştir.
-            </p>
-            
-            <h3 class="text-xl font-semibold text-slate-900 mb-3">Kullanıcı Rolleri & Yetkileri</h3>
-            <div class="overflow-x-auto custom-scrollbar border border-slate-200 rounded-lg shadow-sm">
-                <table class="w-full text-left border-collapse bg-white">
-                    <thead>
-                        <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
-                            <th class="p-4 w-1/4">Rol</th>
-                            <th class="p-4">Yetki Alanı</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-200 text-slate-600">
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-semibold text-slate-900">Jobseeker (İş Arayan)</td>
-                            <td class="p-4">İlan görüntüleme, başvuru yapma, CV yükleme, ilan kaydetme, profil oluşturma</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-semibold text-slate-900">Employer (İşveren)</td>
-                            <td class="p-4">Şirket profili, ilan oluşturma/düzenleme/silme, başvuru yönetimi (ATS)</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-semibold text-slate-900">Admin</td>
-                            <td class="p-4">Tüm kullanıcı ve ilan yönetimi, kategori yönetimi, istatistik paneli</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-11-FF2D20?logo=laravel&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
 
-        <hr class="border-slate-200 my-12" />
+---
 
-        <!-- Özellikler -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-2">✨ Özellikler</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Kimlik Doğrulama -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">🔐 Kimlik Doğrulama & Güvenlik</h3>
-                    <ul class="list-disc list-inside space-y-2 text-slate-600 pl-1">
-                        <li>Token tabanlı authentication (<span class="font-medium text-slate-900">Laravel Sanctum</span>)</li>
-                        <li>Kullanıcı kaydı ve girişi <span class="text-sm text-slate-500">(rol seçimi: iş arayan / işveren)</span></li>
-                        <li><span class="font-medium text-slate-900">Google OAuth 2.0</span> ile giriş</li>
-                        <li>Şifre sıfırlama <span class="text-sm text-slate-500">(e-posta ile token doğrulamalı)</span></li>
-                        <li>Tüm cihazlardan çıkış <span class="text-sm text-slate-500">(token invalidation)</span></li>
-                        <li>Hesap silme</li>
-                    </ul>
-                </div>
+## 📌 Proje Hakkında
 
-                <!-- Kullanıcı Profili -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">👤 Kullanıcı Profili (Jobseeker)</h3>
-                    <ul class="list-disc list-inside space-y-2 text-slate-600 pl-1">
-                        <li>Kişisel bilgiler <span class="text-sm text-slate-500">(ünvan, biyografi, şehir, telefon)</span></li>
-                        <li>LinkedIn, GitHub, portfolio URL bağlantıları</li>
-                        <li>Deneyim yılı ve beklenen maaş bilgisi</li>
-                        <li><span class="italic">"İş tekliflerine açığım"</span> durumu</li>
-                        <li>PDF CV yükleme (<span class="font-medium text-slate-900">Cloudflare R2</span> — S3 uyumlu bulut depolama)</li>
-                    </ul>
-                </div>
+Job Board, işverenler ve iş arayanları bir araya getiren tam özellikli bir kariyer platformudur. LinkedIn ve Kariyer.net gibi platformlardan ilham alınarak modern bir teknoloji yığını üzerine inşa edilmiştir.
 
-                <!-- Şirket Profili -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">🏢 Şirket Profili (Employer)</h3>
-                    <ul class="list-disc list-inside space-y-2 text-slate-600 pl-1">
-                        <li>Şirket adı, sektör, şehir, çalışan sayısı</li>
-                        <li>Kuruluş yılı ve website bilgisi</li>
-                        <li>Şirket açıklaması</li>
-                    </ul>
-                </div>
+### Kullanıcı Rolleri
 
-                <!-- İş İlanı Yönetimi -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">💼 İş İlanı Yönetimi</h3>
-                    <ul class="list-disc list-inside space-y-2 text-slate-600 pl-1">
-                        <li>İlan oluşturma, düzenleme, silme</li>
-                        <li><span class="font-medium text-slate-900">Çalışma tipi:</span> Tam zamanlı, Yarı zamanlı, Freelance, Staj</li>
-                        <li><span class="font-medium text-slate-900">Lokasyon tipi:</span> Ofis, Uzaktan, Hibrit</li>
-                        <li>Maaş aralığı <span class="text-sm text-slate-500">(TRY/USD/EUR, görünürlük kontrolü)</span></li>
-                        <li><span class="font-medium text-slate-900">İlan durumu:</span> Taslak, Yayında, Kapalı</li>
-                        <li>Otomatik slug oluşturma</li>
-                        <li>Kategori sistemi</li>
-                    </ul>
-                </div>
+| Rol | Yetkiler |
+|-----|----------|
+| **Jobseeker** (İş Arayan) | İlan görüntüleme, başvuru yapma, CV yükleme, ilan kaydetme, profil oluşturma |
+| **Employer** (İşveren) | Şirket profili, ilan oluşturma/düzenleme/silme, başvuru yönetimi (ATS) |
+| **Admin** | Tüm kullanıcı ve ilan yönetimi, kategori yönetimi, istatistik paneli |
 
-                <!-- Başvuru Sistemi -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">📄 Başvuru Sistemi (ATS)</h3>
-                    <ul class="list-disc list-inside space-y-2 text-slate-600 pl-1">
-                        <li>İlana başvuru <span class="text-sm text-slate-500">(ön yazı + PDF CV yükleme)</span></li>
-                        <li><span class="font-medium text-slate-900">Başvuru durumu takibi:</span> Beklemede &rarr; İnceleniyor &rarr; Kısa Listede &rarr; İşe Alındı / Reddedildi</li>
-                        <li>İşveren notu <span class="text-sm text-slate-500">(adaya gizli)</span></li>
-                        <li>Aynı ilana tekrar başvuru engeli</li>
-                    </ul>
-                </div>
+---
 
-                <!-- E-posta Bildirimleri -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">📧 E-posta Bildirimleri</h3>
-                    <ul class="list-disc list-inside space-y-2 text-slate-600 pl-1">
-                        <li>Başvuru yapılınca işverene bildirim: <span class="italic">"X adlı aday başvurdu"</span></li>
-                        <li>Başvuru yapılınca adaya bildirim: <span class="italic">"Başvurunuz alındı"</span></li>
-                        <li>Başvuru durumu değişince adaya bildirim: <span class="italic">"Başvurunuz güncellendi"</span></li>
-                        <li>Şifre sıfırlama maili</li>
-                    </ul>
-                </div>
+## ✨ Özellikler
 
-                <!-- Kayıtlı İlanlar -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">🔖 Kayıtlı İlanlar</h3>
-                    <ul class="list-disc list-inside space-y-2 text-slate-600 pl-1">
-                        <li>İlanı favorilere ekleme / çıkarma</li>
-                        <li>Kaydedilen ilanları listeleme</li>
-                    </ul>
-                </div>
+<details>
+<summary><strong>🔐 Kimlik Doğrulama & Güvenlik</strong></summary>
 
-                <!-- Admin Paneli -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">📊 Admin Paneli</h3>
-                    <ul class="list-disc list-inside space-y-2 text-slate-600 pl-1">
-                        <li>Kullanıcı istatistikleri <span class="text-sm text-slate-500">(toplam, işveren, iş arayan)</span></li>
-                        <li>İlan ve başvuru istatistikleri</li>
-                        <li>Kullanıcı yönetimi <span class="text-sm text-slate-500">(listeleme, silme)</span></li>
-                        <li>İlan yönetimi <span class="text-sm text-slate-500">(listeleme, silme)</span></li>
-                        <li>Kategori oluşturma ve silme</li>
-                    </ul>
-                </div>
-            </div>
+- Token tabanlı authentication (Laravel Sanctum)
+- Kullanıcı kaydı ve girişi (rol seçimi: iş arayan / işveren)
+- Google OAuth 2.0 ile giriş
+- Şifre sıfırlama (e-posta ile token doğrulamalı)
+- Tüm cihazlardan çıkış (token invalidation)
+- Hesap silme
 
-            <!-- Güvenli Dosya Erişimi -->
-            <div class="mt-8 bg-amber-50 border border-amber-200 p-5 rounded-xl">
-                <h3 class="text-lg font-bold text-amber-900 mb-2 flex items-center gap-2">🔒 Güvenli Dosya Erişimi</h3>
-                <ul class="list-disc list-inside space-y-1 text-amber-800">
-                    <li>CV'ler <span class="font-semibold">Cloudflare R2</span> (S3 uyumlu) bulut depolamada saklanır.</li>
-                    <li><span class="font-semibold">Presigned URL</span> ile geçici erişim sağlanır <span class="text-sm opacity-90">(30 dakika geçerli)</span>.</li>
-                    <li>Bucket private konumdadır, dışarıdan doğrudan erişim tamamen kapalıdır.</li>
-                </ul>
-            </div>
-        </section>
+</details>
 
-        <hr class="border-slate-200 my-12" />
+<details>
+<summary><strong>👤 Kullanıcı Profili (Jobseeker)</strong></summary>
 
-        <!-- Teknoloji Yığını -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">🛠️ Teknoloji Yığını</h2>
-            
-            <div class="space-y-8">
-                <!-- Backend -->
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-3">Backend</h3>
-                    <div class="overflow-x-auto custom-scrollbar border border-slate-200 rounded-lg shadow-sm">
-                        <table class="w-full text-left border-collapse bg-white">
-                            <thead>
-                                <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
-                                    <th class="p-3 w-1/3">Teknoloji</th>
-                                    <th class="p-3 w-1/6">Sürüm</th>
-                                    <th class="p-3">Kullanım Amacı</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-200 text-slate-600 text-sm">
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">PHP</td>
-                                    <td class="p-3">8.3</td>
-                                    <td class="p-3">Sunucu dili</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">Laravel</td>
-                                    <td class="p-3">11</td>
-                                    <td class="p-3">API framework</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">Laravel Sanctum</td>
-                                    <td class="p-3">4.3</td>
-                                    <td class="p-3">Token authentication</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">Laravel Socialite</td>
-                                    <td class="p-3">5.x</td>
-                                    <td class="p-3">Google OAuth</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">Laravel Breeze</td>
-                                    <td class="p-3">2.4</td>
-                                    <td class="p-3">Auth scaffolding</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">PostgreSQL</td>
-                                    <td class="p-3">16</td>
-                                    <td class="p-3">Ana veritabanı</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">Cloudflare R2</td>
-                                    <td class="p-3">—</td>
-                                    <td class="p-3">S3 uyumlu dosya depolama</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+- Kişisel bilgiler (ünvan, biyografi, şehir, telefon)
+- LinkedIn, GitHub, portfolio URL bağlantıları
+- Deneyim yılı ve beklenen maaş bilgisi
+- "İş tekliflerine açığım" durumu
+- PDF CV yükleme (Cloudflare R2 — S3 uyumlu bulut depolama)
 
-                <!-- Frontend -->
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-3">Frontend</h3>
-                    <div class="overflow-x-auto custom-scrollbar border border-slate-200 rounded-lg shadow-sm">
-                        <table class="w-full text-left border-collapse bg-white">
-                            <thead>
-                                <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
-                                    <th class="p-3 w-1/3">Teknoloji</th>
-                                    <th class="p-3 w-1/6">Sürüm</th>
-                                    <th class="p-3">Kullanım Amacı</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-200 text-slate-600 text-sm">
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">Next.js</td>
-                                    <td class="p-3">15+</td>
-                                    <td class="p-3">React framework (App Router)</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">TypeScript</td>
-                                    <td class="p-3">latest</td>
-                                    <td class="p-3">Tip güvenliği</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">Tailwind CSS</td>
-                                    <td class="p-3">latest</td>
-                                    <td class="p-3">Utility-first CSS</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">shadcn/ui</td>
-                                    <td class="p-3">latest</td>
-                                    <td class="p-3">UI bileşenleri</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-3 font-medium text-slate-900">Axios</td>
-                                    <td class="p-3">latest</td>
-                                    <td class="p-3">HTTP client</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+</details>
 
-                <!-- DevOps & Production Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <h3 class="text-lg font-semibold text-slate-900 mb-3">DevOps & Altyapı (Local)</h3>
-                        <div class="overflow-x-auto custom-scrollbar border border-slate-200 rounded-lg shadow-sm">
-                            <table class="w-full text-left border-collapse bg-white">
-                                <thead>
-                                    <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
-                                        <th class="p-3 w-1/2">Teknoloji</th>
-                                        <th class="p-3">Kullanım Amacı</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-200 text-slate-600 text-sm">
-                                    <tr class="hover:bg-slate-50">
-                                        <td class="p-3 font-medium text-slate-900">Docker</td>
-                                        <td class="p-3">Container orchestration</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50">
-                                        <td class="p-3 font-medium text-slate-900">Docker Compose</td>
-                                        <td class="p-3">Çoklu servis yönetimi</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50">
-                                        <td class="p-3 font-medium text-slate-900">Nginx</td>
-                                        <td class="p-3">Reverse proxy, PHP-FPM yönlendirme</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50">
-                                        <td class="p-3 font-medium text-slate-900">Mailpit</td>
-                                        <td class="p-3">Local e-posta testi</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50">
-                                        <td class="p-3 font-medium text-slate-900">MinIO</td>
-                                        <td class="p-3">Local S3 dosya depolama</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50">
-                                        <td class="p-3 font-medium text-slate-900">pgAdmin</td>
-                                        <td class="p-3">PostgreSQL arayüzü</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+<details>
+<summary><strong>🏢 Şirket Profili (Employer)</strong></summary>
 
-                    <div>
-                        <h3 class="text-lg font-semibold text-slate-900 mb-3">Production Servisleri</h3>
-                        <div class="overflow-x-auto custom-scrollbar border border-slate-200 rounded-lg shadow-sm">
-                            <table class="w-full text-left border-collapse bg-white">
-                                <thead>
-                                    <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
-                                        <th class="p-3 w-1/2">Servis</th>
-                                        <th class="p-3">Platform</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-200 text-slate-600 text-sm">
-                                    <tr class="hover:bg-slate-50">
-                                        <td class="p-3 font-medium text-slate-900">Backend API</td>
-                                        <td class="p-3">Render.com</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50">
-                                        <td class="p-3 font-medium text-slate-900">Frontend</td>
-                                        <td class="p-3">Netlify</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50">
-                                        <td class="p-3 font-medium text-slate-900">Veritabanı</td>
-                                        <td class="p-3">Supabase (PostgreSQL)</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50">
-                                        <td class="p-3 font-medium text-slate-900">Dosya Depolama</td>
-                                        <td class="p-3">Cloudflare R2</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50">
-                                        <td class="p-3 font-medium text-slate-900">E-posta</td>
-                                        <td class="p-3">Mailtrap / Gmail SMTP</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+- Şirket adı, sektör, şehir, çalışan sayısı
+- Kuruluş yılı ve website bilgisi
+- Şirket açıklaması
 
-        <hr class="border-slate-200 my-12" />
+</details>
 
-        <!-- Mimari -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">🏗️ Mimari</h2>
-            <div class="bg-slate-900 p-6 rounded-xl overflow-x-auto custom-scrollbar shadow-inner">
-                <pre class="text-emerald-400 text-sm leading-relaxed">
+<details>
+<summary><strong>💼 İş İlanı Yönetimi</strong></summary>
+
+- İlan oluşturma, düzenleme, silme
+- Çalışma tipi: Tam zamanlı, Yarı zamanlı, Freelance, Staj
+- Lokasyon tipi: Ofis, Uzaktan, Hibrit
+- Maaş aralığı (TRY/USD/EUR, görünürlük kontrolü)
+- İlan durumu: Taslak, Yayında, Kapalı
+- Otomatik slug oluşturma & kategori sistemi
+
+</details>
+
+<details>
+<summary><strong>📄 Başvuru Sistemi (ATS)</strong></summary>
+
+- İlana başvuru (ön yazı + PDF CV yükleme)
+- Başvuru durumu takibi: `Beklemede` → `İnceleniyor` → `Kısa Listede` → `İşe Alındı` / `Reddedildi`
+- İşveren notu (adaya gizli)
+- Aynı ilana tekrar başvuru engeli
+
+</details>
+
+<details>
+<summary><strong>📧 E-posta Bildirimleri</strong></summary>
+
+- Başvuru yapılınca işverene bildirim
+- Başvuru yapılınca adaya onay bildirimi
+- Başvuru durumu değişince adaya bildirim
+- Şifre sıfırlama maili
+
+</details>
+
+<details>
+<summary><strong>🔖 Kayıtlı İlanlar & 📊 Admin Paneli</strong></summary>
+
+- İlanı favorilere ekleme / çıkarma, kaydedilen ilanları listeleme
+- Kullanıcı istatistikleri (toplam, işveren, iş arayan)
+- İlan ve başvuru istatistikleri
+- Kullanıcı yönetimi (listeleme, silme)
+- Kategori oluşturma ve silme
+
+</details>
+
+<details>
+<summary><strong>🔒 Güvenli Dosya Erişimi</strong></summary>
+
+- CV'ler Cloudflare R2 (S3 uyumlu) bulut depolamada saklanır
+- Presigned URL ile geçici erişim (30 dakika geçerli)
+- Bucket private, doğrudan erişim kapalı
+
+</details>
+
+---
+
+## 🛠️ Teknoloji Yığını
+
+### Backend
+
+| Teknoloji | Sürüm | Kullanım |
+|-----------|-------|----------|
+| PHP | 8.3 | Sunucu dili |
+| Laravel | 11 | API framework |
+| Laravel Sanctum | 4.3 | Token authentication |
+| Laravel Socialite | 5.x | Google OAuth |
+| Laravel Breeze | 2.4 | Auth scaffolding |
+| PostgreSQL | 16 | Ana veritabanı |
+| Cloudflare R2 | — | S3 uyumlu dosya depolama |
+
+### Frontend
+
+| Teknoloji | Sürüm | Kullanım |
+|-----------|-------|----------|
+| Next.js | 15+ | React framework (App Router) |
+| TypeScript | latest | Tip güvenliği |
+| Tailwind CSS | latest | Utility-first CSS |
+| shadcn/ui | latest | UI bileşenleri |
+| Axios | latest | HTTP client |
+
+### DevOps & Altyapı (Local)
+
+| Teknoloji | Kullanım |
+|-----------|----------|
+| Docker | Container orchestration |
+| Docker Compose | Çoklu servis yönetimi |
+| Nginx | Reverse proxy, PHP-FPM yönlendirme |
+| Mailpit | Local e-posta testi |
+| MinIO | Local S3 uyumlu dosya depolama |
+| pgAdmin | PostgreSQL yönetim arayüzü |
+
+### Production Servisleri
+
+| Servis | Platform |
+|--------|----------|
+| Backend API | Render.com |
+| Frontend | Netlify |
+| Veritabanı | Supabase (PostgreSQL) |
+| Dosya Depolama | Cloudflare R2 |
+| E-posta | Mailtrap / Gmail SMTP |
+
+---
+
+## 🏗️ Mimari
+
+```
 ┌─────────────────────────────────────────────────────────┐
-│                    Kullanıcı (Tarayıcı)                 │
+│                    Kullanıcı (Tarayıcı)                  │
 └─────────────────────────┬───────────────────────────────┘
                           │
                           ▼
 ┌─────────────────────────────────────────────────────────┐
-│          Next.js Frontend (Netlify)                     │
+│         Next.js Frontend (Netlify)                       │
 │    Login │ Register │ İlanlar │ Dashboard                │
 └─────────────────────────┬───────────────────────────────┘
                           │ HTTP/JSON
                           ▼
 ┌─────────────────────────────────────────────────────────┐
-│          Laravel API (Render.com)                       │
+│         Laravel API (Render.com)                         │
 │    Auth │ Jobs │ Applications │ Profiles │ Admin         │
 └────┬────────────────┬────────────────────┬──────────────┘
      │                │                    │
@@ -388,321 +182,333 @@
 ┌──────────┐   ┌────────────┐   ┌──────────────────┐
 │ Supabase │   │  Mailtrap  │   │  Cloudflare R2   │
 │(PostgreSQL)  │  (E-posta) │   │  (CV/dosya)      │
-└──────────┘   └────────────┘   └──────────────────┘</pre>
-            </div>
-        </section>
+└──────────┘   └────────────┘   └──────────────────┘
+```
 
-        <hr class="border-slate-200 my-12" />
+---
 
-        <!-- Local Geliştirme Kurulumu -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">⚙️ Local Geliştirme Kurulumu</h2>
-            
-            <div class="space-y-4 text-slate-600 mb-8">
-                <p class="font-medium text-slate-900">Gereksinimler:</p>
-                <ul class="list-disc list-inside space-y-1 pl-2">
-                    <li>Docker Desktop</li>
-                    <li>Node.js 18+</li>
-                    <li>Git</li>
-                </ul>
-            </div>
+## ⚙️ Local Geliştirme Kurulumu
 
-            <div class="space-y-8">
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-2">1. Repoyu Klonla</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar">
-                        <pre><span class="text-slate-500">git clone</span> https://github.com/kullanici/job-board.git
-<span class="text-slate-500">cd</span> job-board</pre>
-                    </div>
-                </div>
+### Gereksinimler
 
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-2">2. Backend Ortam Değişkenleri</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar mb-2">
-                        <pre><span class="text-slate-500">cp</span> backend/.env.example backend/.env</pre>
-                    </div>
-                    <p class="text-sm text-slate-500 mb-3"><code class="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded border">.env</code> dosyasını düzenleyin:</p>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar max-h-96">
-                        <pre><span class="text-amber-400">APP_NAME</span>="Job Board"
-<span class="text-amber-400">APP_URL</span>=http://localhost:8080
-<span class="text-amber-400">FRONTEND_URL</span>=http://localhost:3000
+- Docker Desktop
+- Node.js 18+
+- Git
 
-<span class="text-amber-400">DB_CONNECTION</span>=pgsql
-<span class="text-amber-400">DB_HOST</span>=postgres
-<span class="text-amber-400">DB_PORT</span>=5432
-<span class="text-amber-400">DB_DATABASE</span>=job_board
-<span class="text-amber-400">DB_USERNAME</span>=job_user
-<span class="text-amber-400">DB_PASSWORD</span>=secret123
+### 1. Repoyu Klonla
 
-<span class="text-amber-400">SESSION_DRIVER</span>=file
-<span class="text-amber-400">CACHE_STORE</span>=file
-<span class="text-amber-400">QUEUE_CONNECTION</span>=sync
+```bash
+git clone https://github.com/kullanici/job-board.git
+cd job-board
+```
 
-<span class="text-slate-500"># Local MinIO ayarları</span>
-<span class="text-amber-400">FILESYSTEM_DISK</span>=s3
-<span class="text-amber-400">AWS_ACCESS_KEY_ID</span>=minioadmin
-<span class="text-amber-400">AWS_SECRET_ACCESS_KEY=</span>minio_secret123
-<span class="text-amber-400">AWS_DEFAULT_REGION</span>=us-east-1
-<span class="text-amber-400">AWS_BUCKET</span>=job-board
-<span class="text-amber-400">AWS_ENDPOINT</span>=http://minio:9000
-<span class="text-amber-400">AWS_URL</span>=http://localhost:9000
-<span class="text-amber-400">AWS_USE_PATH_STYLE_ENDPOINT</span>=true
+### 2. Backend Ortam Değişkenleri
 
-<span class="text-amber-400">MAIL_MAILER</span>=smtp
-<span class="text-amber-400">MAIL_HOST</span>=mailpit
-<span class="text-amber-400">MAIL_PORT</span>=1025
-<span class="text-amber-400">MAIL_FROM_ADDRESS</span>="noreply@jobboard.com"
+```bash
+cp backend/.env.example backend/.env
+```
 
-<span class="text-amber-400">GOOGLE_CLIENT_ID</span>=your_google_client_id
-<span class="text-amber-400">GOOGLE_CLIENT_SECRET</span>=your_google_client_secret
-<span class="text-amber-400">GOOGLE_REDIRECT_URI</span>=http://localhost:8080/api/auth/google/callback
-<span class="text-amber-400">GOOGLE_ENABLED</span>=true</pre>
-                    </div>
-                </div>
+`.env` dosyasını düzenle:
 
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-2">3. Docker Servisleri Başlat</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar mb-4">
-                        <pre>docker compose up -d</pre>
-                    </div>
-                    <div class="overflow-x-auto custom-scrollbar border border-slate-200 rounded-lg">
-                        <table class="w-full text-left border-collapse bg-white text-sm">
-                            <thead>
-                                <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
-                                    <th class="p-3 w-1/3">Servis</th>
-                                    <th class="p-3">Adres</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-200 text-slate-600">
-                                <tr><td class="p-3 font-medium text-slate-900">Backend API</td><td class="p-3"><a href="http://localhost:8080" class="text-blue-600 hover:underline">http://localhost:8080</a></td></tr>
-                                <tr><td class="p-3 font-medium text-slate-900">pgAdmin</td><td class="p-3"><a href="http://localhost:5050" class="text-blue-600 hover:underline">http://localhost:5050</a></td></tr>
-                                <tr><td class="p-3 font-medium text-slate-900">MinIO UI</td><td class="p-3"><a href="http://localhost:9001" class="text-blue-600 hover:underline">http://localhost:9001</a></td></tr>
-                                <tr><td class="p-3 font-medium text-slate-900">Mailpit</td><td class="p-3"><a href="http://localhost:8025" class="text-blue-600 hover:underline">http://localhost:8025</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+```env
+APP_NAME="Job Board"
+APP_URL=http://localhost:8080
+FRONTEND_URL=http://localhost:3000
 
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-2">4. Veritabanı Kurulumu</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar">
-                        <pre>docker compose exec app php artisan migrate</pre>
-                    </div>
-                </div>
+DB_CONNECTION=pgsql
+DB_HOST=postgres
+DB_PORT=5432
+DB_DATABASE=job_board
+DB_USERNAME=job_user
+DB_PASSWORD=secret123
 
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-2">5. MinIO Bucket Oluştur</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar">
-                        <pre>docker compose exec minio mc alias set local http://localhost:9000 minioadmin minio_secret123
-docker compose exec minio mc mb local/job-board</pre>
-                    </div>
-                </div>
+SESSION_DRIVER=file
+CACHE_STORE=file
+QUEUE_CONNECTION=sync
 
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-2">6. Admin Kullanıcısı Oluştur</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar">
-                        <pre><span class="text-slate-400">docker compose exec app php artisan tinker</span>
+FILESYSTEM_DISK=s3
+AWS_ACCESS_KEY_ID=minioadmin
+AWS_SECRET_ACCESS_KEY=minio_secret123
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=job-board
+AWS_ENDPOINT=http://minio:9000
+AWS_URL=http://localhost:9000
+AWS_USE_PATH_STYLE_ENDPOINT=true
 
+MAIL_MAILER=smtp
+MAIL_HOST=mailpit
+MAIL_PORT=1025
+MAIL_FROM_ADDRESS="noreply@jobboard.com"
+
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GOOGLE_REDIRECT_URI=http://localhost:8080/api/auth/google/callback
+GOOGLE_ENABLED=true
+```
+
+> **Not:** Production'da MinIO yerine Cloudflare R2, Mailpit yerine Mailtrap veya Gmail SMTP kullanılır.
+
+### 3. Docker Servisleri Başlat
+
+```bash
+docker compose up -d
+```
+
+| Servis | Adres |
+|--------|-------|
+| Backend API | http://localhost:8080 |
+| pgAdmin | http://localhost:5050 |
+| MinIO UI | http://localhost:9001 |
+| Mailpit | http://localhost:8025 |
+
+### 4. Veritabanı Kurulumu
+
+```bash
+docker compose exec app php artisan migrate
+```
+
+### 5. MinIO Bucket Oluştur
+
+```bash
+docker compose exec minio mc alias set local http://localhost:9000 minioadmin minio_secret123
+docker compose exec minio mc mb local/job-board
+```
+
+### 6. Admin Kullanıcısı Oluştur
+
+```bash
+docker compose exec app php artisan tinker
+```
+
+```php
 App\Models\User::create([
-    <span class="text-teal-400">'name'</span> => <span class="text-emerald-400">'Admin'</span>,
-    <span class="text-teal-400">'email'</span> => <span class="text-emerald-400">'admin@jobboard.com'</span>,
-    <span class="text-teal-400">'password'</span> => bcrypt(<span class="text-emerald-400">'sifreniz'</span>),
-    <span class="text-teal-400">'role'</span> => <span class="text-emerald-400">'admin'</span>
-]);</pre>
-                    </div>
-                </div>
+    'name' => 'Admin',
+    'email' => 'admin@jobboard.com',
+    'password' => bcrypt('sifreniz'),
+    'role' => 'admin'
+]);
+```
 
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-2">7. Frontend Kurulumu</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar mb-3">
-                        <pre><span class="text-slate-500">cd</span> frontend
-npm install</pre>
-                    </div>
-                    <p class="text-sm text-slate-500 mb-2"><code class="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded border">.env.local</code> dosyası oluşturun:</p>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar mb-3">
-                        <pre><span class="text-amber-400">NEXT_PUBLIC_API_URL</span>=http://localhost:8080/api</pre>
-                    </div>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar">
-                        <pre>npm run dev</pre>
-                    </div>
-                    <p class="text-sm text-slate-600 mt-2">🌐 Frontend: <a href="http://localhost:3000" class="text-blue-600 hover:underline">http://localhost:3000</a></p>
-                </div>
-            </div>
-        </section>
+### 7. Frontend Kurulumu
 
-        <hr class="border-slate-200 my-12" />
+```bash
+cd frontend
+npm install
+```
 
-        <!-- Production Deploy -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">🚀 Production Deploy</h2>
-            
-            <div class="space-y-6">
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-2">Backend (Render.com) Env Variables</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar max-h-64">
-                        <pre><span class="text-amber-400">APP_ENV</span>=production
-<span class="text-amber-400">APP_DEBUG</span>=false
-<span class="text-amber-400">APP_URL</span>=https://your-backend.onrender.com
-<span class="text-amber-400">FRONTEND_URL</span>=https://your-frontend.netlify.app
-<span class="text-amber-400">DB_CONNECTION</span>=pgsql
-<span class="text-amber-400">DB_HOST</span>=your-supabase-host
-<span class="text-amber-400">FILESYSTEM_DISK</span>=s3
-<span class="text-amber-400">AWS_ENDPOINT</span>=https://your-account-id.r2.cloudflarestorage.com
-<span class="text-amber-400">AWS_USE_PATH_STYLE_ENDPOINT</span>=false
-<span class="text-amber-400">MAIL_MAILER</span>=smtp
-<span class="text-amber-400">MAIL_HOST</span>=sandbox.smtp.mailtrap.io</pre>
-                    </div>
-                </div>
+`.env.local` dosyası oluştur:
 
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-2">Frontend (Netlify) Env</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg overflow-x-auto custom-scrollbar">
-                        <pre><span class="text-amber-400">NEXT_PUBLIC_API_URL</span>=https://your-backend.onrender.com/api</pre>
-                    </div>
-                </div>
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8080/api
+```
 
-                <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm space-y-4 text-slate-600 text-sm">
-                    <div>
-                        <p class="font-semibold text-slate-900 mb-1">☁️ Cloudflare R2 Kurulumu</p>
-                        <p>cloudflare.com &rarr; R2 Object Storage &rarr; Create bucket (<code class="bg-slate-100 text-slate-800 px-1 rounded">job-board</code>)<br>
-                        API Tokens &rarr; Create Account API Token &rarr; Object Read & Write<br>
-                        Access Key ID ve Secret Access Key'i Render env ayarlarına ekleyin.</p>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-900 mb-1">🔑 Google OAuth Kurulumu</p>
-                        <p>Google Cloud Console &rarr; Credentials &rarr; OAuth Client &rarr; Authorized redirect URIs değerine ekleyin:<br>
-                        <code class="bg-slate-100 text-slate-800 px-1 rounded break-all">https://your-backend.onrender.com/api/auth/google/callback</code></p>
-                    </div>
-                </div>
-            </div>
-        </section>
+```bash
+npm run dev
+```
 
-        <hr class="border-slate-200 my-12" />
+Frontend: http://localhost:3000
 
-        <!-- Kullanım Akışları -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">🗺️ Kullanım Akışları</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-5 rounded-lg border border-slate-200">
-                    <h3 class="font-bold text-slate-900 mb-3 border-b pb-2">👤 İş Arayan Akışı</h3>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li><span class="font-medium text-slate-900">/register</span> &rarr; "İş Arıyorum"</li>
-                        <li><span class="font-medium text-slate-900">/jobseeker/dashboard</span></li>
-                        <li><span class="font-medium text-slate-900">/jobseeker/profile</span> &rarr; CV Yükle</li>
-                        <li><span class="font-medium text-slate-900">/jobs</span> &rarr; İlanları Listele / Filtrele</li>
-                        <li><span class="font-medium text-slate-900">/jobs/[slug]</span> &rarr; Başvur</li>
-                        <li><span class="font-medium text-slate-900">/jobseeker/saved</span> &rarr; Favoriler</li>
-                    </ul>
-                </div>
+---
 
-                <div class="bg-white p-5 rounded-lg border border-slate-200">
-                    <h3 class="font-bold text-slate-900 mb-3 border-b pb-2">🏢 İşveren Akışı</h3>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li><span class="font-medium text-slate-900">/register</span> &rarr; "İşveren"</li>
-                        <li><span class="font-medium text-slate-900">/employer/dashboard</span></li>
-                        <li><span class="font-medium text-slate-900">/employer/company</span> &rarr; Profil</li>
-                        <li><span class="font-medium text-slate-900">/employer/create-job</span> &rarr; İlan Aç</li>
-                        <li><span class="font-medium text-slate-900">/employer/applications/[id]</span> &rarr; ATS</li>
-                        <li class="text-xs text-slate-400 italic pt-1">* Durum güncellenince adaya otomatik mail gider.</li>
-                    </ul>
-                </div>
+## 🚀 Production Deploy
 
-                <div class="bg-white p-5 rounded-lg border border-slate-200">
-                    <h3 class="font-bold text-slate-900 mb-3 border-b pb-2">👑 Admin Akışı</h3>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li><span class="font-medium text-slate-900">/login</span> &rarr; Admin Bilgileri</li>
-                        <li><span class="font-medium text-slate-900">/admin</span> &rarr; İstatistikler, Kullanıcı, İlan ve Kategori Tam Kontrolü</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<details>
+<summary><strong>Backend (Render.com)</strong></summary>
 
-        <hr class="border-slate-200 my-12" />
+```env
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://your-backend.onrender.com
+FRONTEND_URL=https://your-frontend.netlify.app
 
-        <!-- API Dokümantasyonu -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">📡 API Dokümantasyonu</h2>
-            
-            <div class="space-y-6">
-                <div>
-                    <h3 class="text-base font-semibold text-slate-700 mb-2">Auth Endpoint'leri</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg text-xs md:text-sm overflow-x-auto custom-scrollbar">
-                        <pre><span class="text-teal-400">POST</span>   /api/register                 <span class="text-slate-500">→ Kayıt ol</span>
-<span class="text-teal-400">POST</span>   /api/login                    <span class="text-slate-500">→ Giriş yap</span>
-<span class="text-teal-400">POST</span>   /api/logout                   <span class="text-slate-500">→ Çıkış yap (token gerekli)</span>
-<span class="text-sky-400">GET</span>    /api/me                       <span class="text-slate-500">→ Giriş yapan kullanıcı (token gerekli)</span>
-<span class="text-teal-400">POST</span>   /api/forgot-password          <span class="text-slate-500">→ Şifre sıfırlama maili</span>
-<span class="text-teal-400">POST</span>   /api/reset-password           <span class="text-slate-500">→ Yeni şifre belirle</span>
-<span class="text-rose-400">DELETE</span> /api/account                  <span class="text-slate-500">→ Hesap sil (token gerekli)</span>
-<span class="text-sky-400">GET</span>    /api/auth/google/redirect     <span class="text-slate-500">→ Google OAuth yönlendirme</span>
-<span class="text-sky-400">GET</span>    /api/auth/google/callback     <span class="text-slate-500">→ Google OAuth callback</span></pre>
-                    </div>
-                </div>
+DB_CONNECTION=pgsql
+DB_HOST=your-supabase-host
+DB_PORT=5432
+DB_DATABASE=postgres
+DB_USERNAME=your-username
+DB_PASSWORD=your-password
 
-                <div>
-                    <h3 class="text-base font-semibold text-slate-700 mb-2">İlan Endpoint'leri</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg text-xs md:text-sm overflow-x-auto custom-scrollbar">
-                        <pre><span class="text-sky-400">GET</span>    /api/jobs                     <span class="text-slate-500">→ Tüm yayınlanmış ilanlar (herkese açık)</span>
-<span class="text-sky-400">GET</span>    /api/jobs/{slug}              <span class="text-slate-500">→ İlan detayı (herkese açık)</span>
-<span class="text-teal-400">POST</span>   /api/jobs                     <span class="text-slate-500">→ İlan oluştur (employer)</span>
-<span class="text-amber-400">PUT</span>    /api/jobs/{id}                <span class="text-slate-500">→ İlan güncelle (employer)</span>
-<span class="text-rose-400">DELETE</span> /api/jobs/{id}                <span class="text-slate-500">→ İlan sil (employer)</span>
-<span class="text-sky-400">GET</span>    /api/my-listings              <span class="text-slate-500">→ Kendi ilanlarım (employer)</span></pre>
-                    </div>
-                </div>
+FILESYSTEM_DISK=s3
+AWS_ACCESS_KEY_ID=your-r2-access-key
+AWS_SECRET_ACCESS_KEY=your-r2-secret-key
+AWS_DEFAULT_REGION=auto
+AWS_BUCKET=job-board
+AWS_ENDPOINT=https://your-account-id.r2.cloudflarestorage.com
+AWS_USE_PATH_STYLE_ENDPOINT=false
 
-                <div>
-                    <h3 class="text-base font-semibold text-slate-700 mb-2">Başvuru Endpoint'leri</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg text-xs md:text-sm overflow-x-auto custom-scrollbar">
-                        <pre><span class="text-teal-400">POST</span>   /api/jobs/{id}/apply          <span class="text-slate-500">→ İlana başvur (jobseeker)</span>
-<span class="text-sky-400">GET</span>    /api/my-applications          <span class="text-slate-500">→ Kendi başvurularım (jobseeker)</span>
-<span class="text-sky-400">GET</span>    /api/jobs/{id}/applications   <span class="text-slate-500">→ İlana gelen başvurular (employer)</span>
-<span class="text-amber-400">PUT</span>    /api/applications/{id}/status <span class="text-slate-500">→ Başvuru durumu güncelle (employer)</span></pre>
-                    </div>
-                </div>
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=your-mailtrap-username
+MAIL_PASSWORD=your-mailtrap-password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="noreply@jobboard.com"
 
-                <div>
-                    <h3 class="text-base font-semibold text-slate-700 mb-2">Profil & Şirket Endpoint'leri</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg text-xs md:text-sm overflow-x-auto custom-scrollbar">
-                        <pre><span class="text-sky-400">GET</span>    /api/profile                  <span class="text-slate-500">→ Profil görüntüle</span>
-<span class="text-teal-400">POST</span>   /api/profile                  <span class="text-slate-500">→ Profil oluştur/güncelle</span>
-<span class="text-teal-400">POST</span>   /api/profile/cv               <span class="text-slate-500">→ CV yükle</span>
-<span class="text-rose-400">DELETE</span> /api/profile/cv               <span class="text-slate-500">→ CV sil</span>
-<span class="text-sky-400">GET</span>    /api/company                  <span class="text-slate-500">→ Şirket profili görüntüle</span>
-<span class="text-teal-400">POST</span>   /api/company                  <span class="text-slate-500">→ Şirket oluştur</span>
-<span class="text-amber-400">PUT</span>    /api/company                  <span class="text-slate-500">→ Şirket güncelle</span></pre>
-                    </div>
-                </div>
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+GOOGLE_REDIRECT_URI=https://your-backend.onrender.com/api/auth/google/callback
+GOOGLE_ENABLED=true
+```
 
-                <div>
-                    <h3 class="text-base font-semibold text-slate-700 mb-2">Diğer Endpoint'ler</h3>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-lg text-xs md:text-sm overflow-x-auto custom-scrollbar">
-                        <pre><span class="text-sky-400">GET</span>    /api/categories               <span class="text-slate-500">→ Tüm kategoriler</span>
-<span class="text-teal-400">POST</span>   /api/categories               <span class="text-slate-500">→ Kategori ekle (admin)</span>
-<span class="text-rose-400">DELETE</span> /api/categories/{id}          <span class="text-slate-500">→ Kategori sil (admin)</span>
-<span class="text-sky-400">GET</span>    /api/saved-jobs               <span class="text-slate-500">→ Kayıtlı ilanlar</span>
-<span class="text-teal-400">POST</span>   /api/saved-jobs/{jobId}       <span class="text-slate-500">→ İlanı kaydet</span>
-<span class="text-rose-400">DELETE</span> /api/saved-jobs/{jobId}       <span class="text-slate-500">→ İlanı kayıtlardan çıkar</span>
-<span class="text-sky-400">GET</span>    /api/cv/{path}                <span class="text-slate-500">→ CV presigned URL al</span>
-<span class="text-sky-400">GET</span>    /api/admin/stats              <span class="text-slate-500">→ İstatistikler (admin)</span>
-<span class="text-sky-400">GET</span>    /api/admin/users              <span class="text-slate-500">→ Kullanıcılar (admin)</span>
-<span class="text-sky-400">GET</span>    /api/admin/jobs               <span class="text-slate-500">→ Tüm ilanlar (admin)</span>
-<span class="text-rose-400">DELETE</span> /api/admin/users/{id}         <span class="text-slate-500">→ Kullanıcı sil (admin)</span>
-<span class="text-rose-400">DELETE</span> /api/admin/jobs/{id}          <span class="text-slate-500">→ İlan sil (admin)</span></pre>
-                    </div>
-                </div>
-            </div>
-        </section>
+</details>
 
-        <hr class="border-slate-200 my-12" />
+<details>
+<summary><strong>Frontend (Netlify)</strong></summary>
 
-        <!-- Proje Yapısı -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">📁 Proje Yapısı</h2>
-            <div class="bg-slate-900 text-slate-300 p-6 rounded-xl overflow-x-auto custom-scrollbar text-sm">
-                <pre><span class="text-amber-400 font-semibold">job-board/</span>
-├── <span class="text-sky-400">backend/</span>                    <span class="text-slate-500"># Laravel API</span>
+`.env.local` veya Netlify dashboard'dan:
+
+```env
+NEXT_PUBLIC_API_URL=https://your-backend.onrender.com/api
+```
+
+</details>
+
+<details>
+<summary><strong>Cloudflare R2 Kurulumu</strong></summary>
+
+1. cloudflare.com → R2 Object Storage → Create bucket (`job-board`)
+2. API Tokens → Create Account API Token → Object Read & Write
+3. Access Key ID ve Secret Access Key'i Render env'e ekle
+
+</details>
+
+<details>
+<summary><strong>Google OAuth Kurulumu</strong></summary>
+
+Google Cloud Console → Credentials → OAuth Client → Authorized redirect URIs:
+
+```
+https://your-backend.onrender.com/api/auth/google/callback
+```
+
+</details>
+
+---
+
+## 🗺️ Kullanım
+
+<details>
+<summary><strong>İş Arayan Akışı</strong></summary>
+
+1. `/register` → "İş Arıyorum" seç → Kayıt ol
+2. `/jobseeker/dashboard` → Dashboard
+3. `/jobseeker/profile` → Profil ve CV yükle
+4. `/jobs` → İlanları gez, filtrele
+5. `/jobs/[slug]` → İlan detayı → Başvur
+6. `/jobseeker/saved` → Kayıtlı ilanlar
+7. Dashboard → Başvuru durumlarını takip et
+
+</details>
+
+<details>
+<summary><strong>İşveren Akışı</strong></summary>
+
+1. `/register` → "İşveren" seç → Kayıt ol
+2. `/employer/dashboard` → Dashboard
+3. `/employer/company` → Şirket profili oluştur
+4. `/employer/create-job` → İlan oluştur
+5. `/employer/applications/[id]` → Başvuruları yönet
+6. Başvuru durumunu güncelle → Adaya otomatik bildirim gider
+
+</details>
+
+<details>
+<summary><strong>Admin Akışı</strong></summary>
+
+1. `/login` → Admin bilgileriyle giriş
+2. `/admin` → İstatistikler, kullanıcılar, ilanlar, kategoriler
+
+</details>
+
+---
+
+## 📡 API Dokümantasyonu
+
+<details>
+<summary><strong>Auth Endpoint'leri</strong></summary>
+
+```
+POST   /api/register                    → Kayıt ol
+POST   /api/login                       → Giriş yap
+POST   /api/logout                      → Çıkış yap (token gerekli)
+GET    /api/me                          → Giriş yapan kullanıcı (token gerekli)
+POST   /api/forgot-password             → Şifre sıfırlama maili
+POST   /api/reset-password              → Yeni şifre belirle
+DELETE /api/account                     → Hesap sil (token gerekli)
+GET    /api/auth/google/redirect        → Google OAuth yönlendirme
+GET    /api/auth/google/callback        → Google OAuth callback
+```
+
+</details>
+
+<details>
+<summary><strong>İlan Endpoint'leri</strong></summary>
+
+```
+GET    /api/jobs                        → Tüm yayınlanmış ilanlar (herkese açık)
+GET    /api/jobs/{slug}                 → İlan detayı (herkese açık)
+POST   /api/jobs                        → İlan oluştur (employer)
+PUT    /api/jobs/{id}                   → İlan güncelle (employer)
+DELETE /api/jobs/{id}                   → İlan sil (employer)
+GET    /api/my-listings                 → Kendi ilanlarım (employer)
+```
+
+</details>
+
+<details>
+<summary><strong>Başvuru Endpoint'leri</strong></summary>
+
+```
+POST   /api/jobs/{id}/apply             → İlana başvur (jobseeker)
+GET    /api/my-applications             → Kendi başvurularım (jobseeker)
+GET    /api/jobs/{id}/applications      → İlana gelen başvurular (employer)
+PUT    /api/applications/{id}/status    → Başvuru durumu güncelle (employer)
+```
+
+</details>
+
+<details>
+<summary><strong>Profil & Şirket Endpoint'leri</strong></summary>
+
+```
+GET    /api/profile                     → Profil görüntüle
+POST   /api/profile                     → Profil oluştur/güncelle
+POST   /api/profile/cv                  → CV yükle
+DELETE /api/profile/cv                  → CV sil
+GET    /api/company                     → Şirket profili görüntüle
+POST   /api/company                     → Şirket oluştur
+PUT    /api/company                     → Şirket güncelle
+```
+
+</details>
+
+<details>
+<summary><strong>Diğer Endpoint'ler</strong></summary>
+
+```
+GET    /api/categories                  → Tüm kategoriler
+POST   /api/categories                  → Kategori ekle (admin)
+DELETE /api/categories/{id}             → Kategori sil (admin)
+GET    /api/saved-jobs                  → Kayıtlı ilanlar
+POST   /api/saved-jobs/{jobId}          → İlanı kaydet
+DELETE /api/saved-jobs/{jobId}          → İlanı kayıtlardan çıkar
+GET    /api/cv/{path}                   → CV presigned URL al
+GET    /api/admin/stats                 → İstatistikler (admin)
+GET    /api/admin/users                 → Kullanıcılar (admin)
+GET    /api/admin/jobs                  → Tüm ilanlar (admin)
+DELETE /api/admin/users/{id}            → Kullanıcı sil (admin)
+DELETE /api/admin/jobs/{id}             → İlan sil (admin)
+```
+
+</details>
+
+---
+
+## 📁 Proje Yapısı
+
+```
+job-board/
+├── backend/                    # Laravel API
 │   ├── app/
 │   │   ├── Http/Controllers/
 │   │   │   ├── Auth/
@@ -731,12 +537,12 @@ npm install</pre>
 │   └── routes/
 │       └── api.php
 │
-├── <span class="text-sky-400">frontend/</span>                   <span class="text-slate-500"># Next.js</span>
+├── frontend/                   # Next.js
 │   ├── app/
 │   │   ├── (auth)/
 │   │   │   ├── login/
 │   │   │   ├── register/
-│   │   │   ├── callback/        <span class="text-slate-500"># Google OAuth callback</span>
+│   │   │   ├── callback/
 │   │   │   ├── forgot-password/
 │   │   │   └── password-reset/[token]/
 │   │   ├── (dashboard)/
@@ -761,46 +567,37 @@ npm install</pre>
 │
 ├── nginx/
 │   └── default.conf
-└── docker-compose.yml</pre>
-            </div>
-        </section>
+└── docker-compose.yml
+```
 
-        <hr class="border-slate-200 my-12" />
+---
 
-        <!-- Veritabanı Şeması -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">🗄️ Veritabanı Şeması</h2>
-            <div class="bg-slate-900 p-6 rounded-xl overflow-x-auto custom-scrollbar shadow-inner text-sm text-teal-400">
-                <pre>
-<span class="text-white font-semibold">users</span>
+## 🗄️ Veritabanı Şeması
+
+```
+users
  ├── profiles         (1-1)
  ├── companies        (1-1)
  ├── job_applications (1-N)
  └── saved_jobs       (1-N)
 
-<span class="text-white font-semibold">companies</span>
+companies
  └── job_listings     (1-N)
 
-<span class="text-white font-semibold">categories</span>
+categories
  └── job_listings     (1-N)
 
-<span class="text-white font-semibold">job_listings</span>
+job_listings
  └── job_applications (1-N)
-     └── saved_jobs   (N-N via pivot)</pre>
-            </div>
-        </section>
+     └── saved_jobs   (N-N via pivot)
+```
 
-        <!-- Footer -->
-        <footer class="mt-20 border-t border-slate-200 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-            <div>
-                Geliştirici: <span class="font-semibold text-slate-700">İbrahim Parlak</span>
-            </div>
-            <div>
-                Lisans: <span class="font-medium bg-slate-100 text-slate-700 px-2 py-0.5 rounded border text-xs">MIT License</span>
-            </div>
-        </footer>
+---
 
-    </div>
+## 👨‍💻 Geliştirici
 
-</body>
-</html>
+**İbrahim Parlak**
+
+## 📄 Lisans
+
+MIT License
