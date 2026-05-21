@@ -76,21 +76,26 @@ class JobApplicationController extends Controller
     }
 
     // İşveren: ilanına gelen başvuruları listele
-    public function listingApplications(Request $request, $jobId)
-    {
-        $job = JobListing::findOrFail($jobId);
-
-        if ($job->company->user_id !== $request->user()->id) {
-            return response()->json(['message' => 'Yetkisiz işlem'], 403);
-        }
-
-        $applications = JobApplication::with('user.profile')
-            ->where('job_listing_id', $jobId)
-            ->latest()
-            ->paginate(10);
-
-        return response()->json($applications);
+public function listingApplications(Request $request, $jobId){
+    $job = JobListing::findOrFail($jobId);
+    if($job->company->user_id !== $request->user()->id){
+        return response()->json(['message' => 'Yetkisiz işlem'], 403);
     }
+    $applications = JobApplication::with('user.profile')
+        ->where('job_listing_id', $jobId)
+        ->latest()
+        ->paginate(10);
+
+    // Her başvuru için cv_url ekle
+    $applications->getCollection()->transform(function ($app) {
+        if ($app->cv_path) {
+            $app->cv_url = route('cv.url', ['path' => $app->cv_path]);
+        }
+        return $app;
+    });
+
+    return response()->json($applications);
+}
 
     // İşveren: başvuru durumunu güncelle
     public function updateStatus(Request $request, $applicationId)
