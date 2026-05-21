@@ -13,6 +13,15 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\GoogleAuthController;
 
+Route::get('/test-s3', function () {
+    try {
+        \Storage::disk('s3')->put('test.txt', 'hello world');
+        return response()->json(['message' => 'S3 çalışıyor!']);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+});
+
 Route::get('/auth/google/redirect', [GoogleAuthController::class, 'redirect']);
 Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback']);
 
