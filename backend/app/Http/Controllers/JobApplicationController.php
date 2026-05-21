@@ -86,10 +86,16 @@ public function listingApplications(Request $request, $jobId){
         ->latest()
         ->paginate(10);
 
-    // Her başvuru için cv_url ekle
     $applications->getCollection()->transform(function ($app) {
         if ($app->cv_path) {
-            $app->cv_url = route('cv.url', ['path' => $app->cv_path]);
+            try {
+                $app->cv_url = \Storage::disk('s3')->temporaryUrl(
+                    $app->cv_path, 
+                    now()->addMinutes(30)
+                );
+            } catch (\Exception $e) {
+                $app->cv_url = null;
+            }
         }
         return $app;
     });
