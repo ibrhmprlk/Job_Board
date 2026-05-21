@@ -33,13 +33,18 @@ class JobApplicationController extends Controller
             'cv'           => 'nullable|file|mimes:pdf|max:5120',
         ]);
 
-        $cvPath = null;
-        if ($request->hasFile('cv')) {
-            $cvPath = $request->file('cv')->store(
-                'cvs/' . $request->user()->id,
-                's3'
-            );
-        }
+       $cvPath = null;
+if ($request->hasFile('cv')) {
+    try {
+        $cvPath = $request->file('cv')->store(
+            'cvs/' . $request->user()->id,
+            's3'
+        );
+        \Log::info('CV yüklendi: ' . $cvPath);
+    } catch (\Exception $e) {
+        \Log::error('CV yükleme hatası: ' . $e->getMessage());
+    }
+}
 
         $application = JobApplication::create([
             'job_listing_id' => $jobId,
