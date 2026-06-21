@@ -6,6 +6,7 @@ import Link from "next/link";
 import api from "@/lib/axios";
 
 function ForgotPasswordForm() {
+    console.log("⚠️ TEST MODU: Reset emailleri Mailtrap Sandbox'a düşmektedir.");
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
