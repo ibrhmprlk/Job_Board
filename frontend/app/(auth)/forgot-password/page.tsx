@@ -50,6 +50,7 @@ export default function ForgotPasswordPage() {
           </h1>
           <p className="text-slate-500 mt-2 text-sm">
             E-posta adresini gir, link gönderelim
+            ⚠️TEST MODU: Reset emailleri Mailtrap Sandbox'a düşmektedir.
           </p>
         </div>
 
