@@ -1,119 +1,30 @@
-services:
-app:
-build:
-context: ./backend
-dockerfile: Dockerfile
-container_name: job_board_app
-restart: unless-stopped
-working_dir: /var/www
-volumes:
-- ./backend:/var/www
-networks:
-- job_board_network
-depends_on:
-postgres:
-condition: service_healthy
-redis:
-condition: service_healthy
+FROM php:8.4.27-fpm
 
-nginx:
-image: nginx:alpine
-container_name: job_board_nginx
-restart: unless-stopped
-ports:
-- "8080:80"
-volumes:
-- ./backend:/var/www
-- ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-networks:
-- job_board_network
-depends_on:
-- app
+WORKDIR /var/www
 
-postgres:
-image: postgres:16-alpine
-container_name: job_board_postgres
-restart: unless-stopped
-environment:
-POSTGRES_DB: job_board
-POSTGRES_USER: job_user
-POSTGRES_PASSWORD: secret123
-ports:
-- "5433:5432"
-volumes:
-- postgres_data:/var/lib/postgresql/data
-networks:
-- job_board_network
-healthcheck:
-test: ["CMD-SHELL", "pg_isready -U job_user -d job_board"]
-interval: 10s
-timeout: 5s
-retries: 5
+RUN apt-get update && apt-get install -y \
+git curl libpng-dev libonig-dev libxml2-dev \
+libpq-dev libzip-dev libicu-dev zip unzip \
+&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
-redis:
-image: redis:alpine
-container_name: job_board_redis
-restart: unless-stopped
-ports:
-- "6379:6379"
-volumes:
-- redis_data:/data
-networks:
-- job_board_network
-healthcheck:
-test: ["CMD", "redis-cli", "ping"]
-interval: 10s
-timeout: 5s
-retries: 5
+RUN docker-php-ext-install \
+pdo pdo_pgsql pgsql mbstring exif \
+pcntl bcmath gd zip intl opcache
 
-pgadmin:
-image: dpage/pgadmin4:latest
-container_name: job_board_pgadmin
-restart: unless-stopped
-environment:
-PGADMIN_DEFAULT_EMAIL: admin@jobboard.com
-PGADMIN_DEFAULT_PASSWORD: admin123
-ports:
-- "5050:80"
-networks:
-- job_board_network
-depends_on:
-- postgres
+RUN pecl install redis && docker-php-ext-enable redis
 
-mailpit:
-image: axllent/mailpit:latest
-container_name: job_board_mailpit
-restart: unless-stopped
-ports:
-- "8025:8025"
-- "1025:1025"
-networks:
-- job_board_network
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-minio:
-image: minio/minio:latest
-container_name: job_board_minio
-restart: unless-stopped
-command: server /data --console-address ":9001"
-environment:
-MINIO_ROOT_USER: minioadmin
-MINIO_ROOT_PASSWORD: minio_secret123
-ports:
-- "9000:9000"
-- "9001:9001"
-volumes:
-- minio_data:/data
-networks:
-- job_board_network
+COPY . .
 
-networks:
-job_board_network:
-driver: bridge
+RUN composer install --no-interaction --optimize-autoloader --no-dev
 
-volumes:
-postgres_data:
-driver: local
-redis_data:
-driver: local
-minio_data:
-driver: local
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
+&& chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+
+EXPOSE 10000
+
+CMD sh -c "php artisan config:cache \
+&& php artisan route:cache \
+&& php artisan migrate --force \
+&& php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"
